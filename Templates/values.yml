@@ -30,3 +30,9 @@ env:
     key1: value10
   secrets:
     key2: value2
+    
+# Secret generaterd for kubernetes using kubectl to pull image from docker registry omeshwar/harness-training
+# Image Pull Secret is used to provide Kubernets CLuster access to the Image Repo e.g. Docker-hub, Nexus or Artifactory.
+# kubectl create secret docker-registry <Name of the Secret> --docker-server=<Name of the Repo> --docker-username=<Repo User> --docker-password=<User Password to access Repo> 
+imagePullSecrets:
+      - name: dockersecret

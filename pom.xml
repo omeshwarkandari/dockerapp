@@ -47,7 +47,8 @@
 						</exclude>
 					</excludes>
 				</configuration>
-		 	<plugin>
+		 	</plugin>
+			<plugin>
             			<groupId>org.apache.maven.plugins</groupId>
             			<artifactId>maven-antrun-plugin</artifactId>
             			<version>1.1</version>		

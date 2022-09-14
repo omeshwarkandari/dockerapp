@@ -1,34 +1,12 @@
-{{- if .Values.dockercfg}}
 apiVersion: v1
-kind: Secret
+kind: Service
 metadata:
-  name: {{.Values.name}}-dockercfg
-  annotations:
-    harness.io/skip-versioning: true
-data:
-  .dockercfg: {{.Values.dockercfg}}
-type: kubernetes.io/dockercfg
----
-{{- end}}
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: {{.Values.name}}-deployment
+  name: {{.Values.name}}-svc
 spec:
-  replicas: {{int .Values.replicas}}
+  type: {{.Values.serviceType}}
+  ports:
+  - port: {{.Values.servicePort}}
+    targetPort: {{.Values.serviceTargetPort}}
+    protocol: TCP
   selector:
-    matchLabels:
-      app: {{.Values.name}}
-  template:
-    metadata:
-      labels:
-        app: {{.Values.name}}
-    spec:
-      {{- if .Values.dockercfg}}
-      imagePullSecrets:
-      - name: {{.Values.name}}-dockercfg
-      {{- end}}
-      containers:
-      - name: {{.Values.name}}
-        image: {{.Values.image}}
+    app: {{.Values.name}}

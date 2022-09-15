@@ -9,4 +9,4 @@ servicePort: 80
 serviceTargetPort: 80
 
 config:
-  env: defaul
+  env: default

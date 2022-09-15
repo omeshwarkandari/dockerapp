@@ -38,4 +38,10 @@ serviceTargetPort: 80
 # secrets:
 #   key2: value2
     
+    
+  config:
+    env: default
+  secrets:
+     secret: dockersecret
+
 

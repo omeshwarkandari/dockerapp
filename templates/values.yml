@@ -10,7 +10,7 @@ dockercfg: <+artifact.imagePullSecret>
 # Image Pull Secret is used to provide Kubernets CLuster access to the Image Repo e.g. Docker-hub, Nexus or Artifactory.
 # kubectl create secret docker-registry <Name of the Secret> --docker-server=<Name of the Repo> --docker-username=<Repo User> --docker-password=<User Password to access Repo> 
 createImagePullSecret: true
-imagePullSecrets:
+imagePullSecret:
       - name: dockersecret
 
 # namespace: <+infra.namespace> to reference the namespace entered in the Stage's Infrastructure Definition

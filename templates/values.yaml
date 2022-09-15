@@ -1,47 +1,12 @@
-# name: <+stage.variables.name> to reference a Stage variable name
-name: <+stage.variables.name>
+name: default
 replicas: 1
 
-# image: <+artifact.image> to identify the primary artifact added in Artifacts
-# Deployment Manifest reference the image value as {{.Values.image}}
 image: <+artifact.image>
-dockercfg: <+artifact.imagePullSecret>
-# Secret generaterd for kubernetes using kubectl to pull image from docker registry omeshwar/harness-training
-# Image Pull Secret is used to provide Kubernets CLuster access to the Image Repo e.g. Docker-hub, Nexus or Artifactory.
-# kubectl create secret docker-registry <Name of the Secret> --docker-server=<Name of the Repo> --docker-username=<Repo User> --docker-password=<User Password to access Repo> 
-createImagePullSecret: true
-imagePullSecret:
-      - name: dockersecret
 
-# namespace: <+infra.namespace> to reference the namespace entered in the Stage's Infrastructure Definition
-createNamespace: true
-namespace: <+infra.namespace>
-
-# Service Type allow you to specify what kind of service you want.
-# Possible values for ServiceType are:
-# ClusterIP | NodePort | LoadBalancer | ExternalName
 serviceType: LoadBalancer
 
-# A Service can map an incoming port to any targetPort.
-# targetPort is where application is listening on inside the container.
 servicePort: 80
 serviceTargetPort: 80
 
-# Specify all environment variables to be added to the container.
-# The following two maps, config and secrets, are put into a ConfigMap
-# and a Secret, respectively.
-# Both are added to the container environment in podSpec as envFrom source.
-
-# env:
-# config:
-#   key1: value10
-# secrets:
-#   key2: value2
-    
-    
-  config:
-    env: default
-  secrets:
-     secret: dockersecret
-
-
+config:
+  env: defaul

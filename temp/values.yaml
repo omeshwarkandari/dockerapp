@@ -1,1 +1,12 @@
+name: dockerapp
+replicas: 1
 
+image: <+artifact.image>
+
+serviceType: LoadBalancer
+
+servicePort: 80
+serviceTargetPort: 80
+
+config:
+  env: default

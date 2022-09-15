@@ -2,5 +2,3 @@ name: dockerapp
 replicas: 1
 
 image: <+artifact.image>
-
-serviceType: LoadBalancer

@@ -1,34 +1,9 @@
-{{- if .Values.createImagePullSecret}}
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{.Values.name}}-dockercfg
-  annotations:
-    harness.io/skip-versioning: true
-data:
-  .dockercfg: {{.Values.dockercfg}}
-type: kubernetes.io/dockercfg
----
-{{- end}}
-
-
-{{- if .Values.dockercfg}}
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{.Values.name}}-dockercfg
-  annotations:
-    harness.io/skip-versioning: true
-data:
-  .dockercfg: {{.Values.dockercfg}}
-type: kubernetes.io/dockercfg
----
-{{- end}}
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{.Values.name}}-deployment
+  labels:
+    app: {{.Values.name}}
 spec:
   replicas: {{int .Values.replicas}}
   selector:
@@ -39,11 +14,11 @@ spec:
       labels:
         app: {{.Values.name}}
     spec:
-      {{- if .Values.dockercfg}}
-      imagePullSecrets:
-      - name: {{.Values.name}}-dockercfg
-      {{- end}}
       containers:
       - name: {{.Values.name}}
-        image: {{.Values.image}}
-        
+        image: {{.Values.container.image}}
+        envFrom:
+        - configMapRef:
+            name: {{.Values.name}}-config
+        ports:
+        - containerPort: {{.Values.container.port}}

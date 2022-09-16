@@ -4,8 +4,8 @@ replicas: 1
 image: <+artifact.image>
 # dockercfg: <+artifact.imagePullSecret>
 
-createNamespace: true
-namespace: <+infra.default>
+# createNamespace: true
+# namespace: <+infra.namespace>
 
 serviceType: LoadBalancer
 servicePort: 8080

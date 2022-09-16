@@ -1,14 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dockerapp
-  labels:
-    app: springboot
+  name: {{.Values.name}}
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: springboot
+  replicas: {{.Values.replicas}}
   template:
     metadata:
       labels:
@@ -17,6 +15,6 @@ spec:
       containers:
       - name: {{.Values.name}}
         image: {{.Values.image}}
-        imagePullPolicy: Always
+		imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 80

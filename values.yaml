@@ -5,7 +5,7 @@ image: <+artifact.image>
 # dockercfg: <+artifact.imagePullSecret>
 
 createNamespace: true
-namespace: <+infra.namespace>
+namespace: <+infra.default>
 
 serviceType: LoadBalancer
 servicePort: 8080

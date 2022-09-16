@@ -5,16 +5,16 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: springboot
+      app: {{.Values.name}}
   replicas: {{.Values.replicas}}
   template:
     metadata:
       labels:
-        app: springboot
+        app: {{.Values.name}}
     spec:
       containers:
       - name: {{.Values.name}}
         image: {{.Values.image}}
-		imagePullPolicy: Always
+        imagePullPolicy: Always
         ports:
         - containerPort: 80

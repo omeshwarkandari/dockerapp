@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{.Values.name}}
+  name: ({{.Values.name}}-deployment)
 spec:
   selector:
     matchLabels:
@@ -17,4 +17,4 @@ spec:
         image: {{.Values.image}}
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: {{.Values.servicePort}}

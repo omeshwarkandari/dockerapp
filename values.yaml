@@ -8,8 +8,8 @@ image: <+artifact.image>
 # namespace: <+infra.namespace>
 
 serviceType: LoadBalancer
-servicePort: 80
-serviceTargetPort: 80
+servicePort: 8080
+serviceTargetPort: 8080
 
 env:
   config:

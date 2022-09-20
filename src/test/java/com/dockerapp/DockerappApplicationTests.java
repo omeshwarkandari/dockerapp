@@ -6,6 +6,7 @@ import junit.framework.test;
 
 public class DockerappApplicationTests {
 
+	@Test
 	public void test() {
 		System.out.println("TEST SUCCESSFUL");
 	}

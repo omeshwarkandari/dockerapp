@@ -15,6 +15,7 @@
 	<description>Demo docker image project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<junit.version>4.12</junit.version>
 	</properties>
 	<dependencies>
 		<dependency>

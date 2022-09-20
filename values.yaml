@@ -1,5 +1,6 @@
 name: dockerapp
 replicas: 1
+service: svc
 
 image: <+artifact.image>
 # dockercfg: <+artifact.imagePullSecret>

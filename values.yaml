@@ -7,6 +7,7 @@ image: <+artifact.image>
 
 createNamespace: true
 namespace: <+infra.namespace>
+namespace: default
 
 serviceType: LoadBalancer
 servicePort: 8080

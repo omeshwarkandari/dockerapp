@@ -16,7 +16,7 @@ public class DockerappApplication {
 	}
 	
 	@GetMapping("/")
-	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return String.format("Hello %s!!", name);
+	public String hello(@RequestParam(value = "name", defaultValue = "tested") String name) {
+		return String.format("dockerapp %s!", name);
 	}
 }

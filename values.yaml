@@ -5,8 +5,8 @@ service: svc
 image: <+artifact.image>
 # dockercfg: <+artifact.imagePullSecret>
 
-createNamespace: true
-namespace: <+infra.namespace>
+# createNamespace: true
+# namespace: <+infra.namespace>
 
 serviceType: LoadBalancer
 servicePort: 8080

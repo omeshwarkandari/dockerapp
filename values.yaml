@@ -1,4 +1,4 @@
-name: <+stage.name>
+name: dockerapp
 replicas: 1
 service: svc
 

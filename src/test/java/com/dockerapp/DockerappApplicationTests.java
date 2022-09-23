@@ -2,8 +2,7 @@ package com.dockerapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.company.CompareToTester;
-
+import com.dockerapp.CompareToTester;
 
 class DockerappApplicationTests {
 	

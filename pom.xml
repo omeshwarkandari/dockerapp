@@ -18,7 +18,6 @@
 	
 	<properties>
 		<java.version>11</java.version>
-		<junit.version>4.12</junit.version>
 		<project.test.result.directory>${project.build.directory}/test-results</project.test.result.directory>
 		<sonar.projectBaseDir>/home/ubuntu/sonar</sonar.projectBaseDir>
 		<sonar.java.binaries>target</sonar.java.binaries>

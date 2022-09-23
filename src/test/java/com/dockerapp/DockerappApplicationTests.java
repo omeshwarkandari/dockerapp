@@ -2,23 +2,23 @@ package com.dockerapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.dockerapp.CompareToTester;
+import com.dockerapp.entites.Person;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 class DockerappApplicationTests {
 	
-	@Test
-	public void testDoSomething() {
-	  MyClass myClass = new MyClass();
-	  assertNull(myClass.doSomething());  // JUnit assertion
-	  assertThat(myClass.doSomething()).isNull();  // Fest assertion
-	}
-
-	@Test
-	public void testDoSomethingElse() {
-	  MyClass myClass = new MyClass();
-	  new CompareToTester().compareWith(myClass);  // Compliant - custom assertion method defined as rule parameter
-	  CompareToTester.compareStatic(myClass);  // Compliant
-	}
+ 
+// Interface
+// Extends JpaRepository
+	
+public interface PersonRepo
+	    extends JpaRepository<Person, Integer> {
+	    @Query(
+		"SELECT CASE WHEN COUNT(s) > 0 THEN TRUE ELSE FALSE END FROM Person s WHERE s.personId = ?1")
+	    Boolean
+	    isPersonExitsById(Integer id);
+    	   }
 
 	@Test
 	void test() {
